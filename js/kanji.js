@@ -56,9 +56,47 @@ window.Kanji =  {
     $selectedCategory.siblings('.category-content').addClass('expand');
   },
 
+  _handleJLPTButton: function() {
+    var $button = $('.jlptButton');
+    $button.on('click', function () {
+      Kanji.jlptButton();
+    });
+  },
+
+  _handleJouyouButton: function() {
+    var $button = $('.jouyouButton');
+    $button.on('click', function () {
+      Kanji.jouyouButton();
+    });
+  },
+
+  _handleWKButton: function() {
+    var $button = $('.wkButton');
+    $button.on('click', function () {
+      Kanji.wkButton();
+    });
+  },
+
+  jlptButton: function() {
+    var $group = $('.jlptButton');
+
+    $group.toggleClass('selected');
+  },
+
+  jouyouButton: function() {
+    var $group = $('.jouyouButton');
+
+    $group.toggleClass('selected');
+  },
+
+  wkButton: function() {
+    var $group = $('.wkButton');
+
+    $group.toggleClass('selected');
+  },
+
   _handleStrokeToggle: function() {
     var $strokeToggle = $('.strokeToggle');
-
     $strokeToggle.on('click', function() {
       Kanji.toggleStroke();
     });
@@ -161,6 +199,9 @@ window.Kanji =  {
       Kanji._handleSectionExpansion();
       Kanji._handleKanjiSearch();
       Kanji._handleStrokeToggle();
+      Kanji._handleJLPTButton();
+      Kanji._handleJouyouButton();
+      Kanji._handleWKButton();
     });
   }
 };

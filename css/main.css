@@ -54,6 +54,39 @@ body {
   float: left;
 }
 
+.groupButton {
+	float: left;
+	background-color: #fff;
+	cursor: pointer;
+	padding: 5px;
+	margin-right: 2px;
+}
+
+.jlptButton.selected {
+	background-color: pink;
+}
+
+.jouyouButton.selected {
+	background-color: pink;
+}
+
+.wkButton.selected {
+	background-color: pink;
+}
+
+#jlptContent {
+	display: none;
+}
+
+#jouyouContent {
+	display:none;
+}
+
+#wkContent {
+	display:none;
+}
+
+
 .waniKaniContent {
   font-size: 13px;
 }
