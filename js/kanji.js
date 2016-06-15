@@ -75,6 +75,9 @@ window.Kanji =  {
 
   _handleWKButton: function() {
     var $button = $('.wkButton');
+    var $content = $('#wkContent');
+    $content.addClass('hidden');
+
     $button.on('click', function () {
       Kanji.wkButton();
     });
@@ -96,7 +99,9 @@ window.Kanji =  {
 
   wkButton: function() {
     var $button = $('.wkButton');
+    var $content = $('#wkContent');
 
+    $content.toggleClass('hidden');
     $button.toggleClass('selected');
   },
 
