@@ -68,6 +68,9 @@ window.Kanji =  {
 
   _handleJouyouButton: function() {
     var $button = $('.jouyouButton');
+    var $content = $('#jouyouContent');
+    $content.addClass('hidden');
+
     $button.on('click', function () {
       Kanji.jouyouButton();
     });
@@ -93,7 +96,9 @@ window.Kanji =  {
 
   jouyouButton: function() {
     var $button = $('.jouyouButton');
+    var $content = $('#jouyouContent');
 
+    $content.toggleClass('hidden');
     $button.toggleClass('selected');
   },
 
