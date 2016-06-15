@@ -58,6 +58,9 @@ window.Kanji =  {
 
   _handleJLPTButton: function() {
     var $button = $('.jlptButton');
+    var $content = $('#jlptContent');
+    $content.addClass('hidden');
+    
     $button.on('click', function () {
       Kanji.jlptButton();
     });
@@ -78,21 +81,23 @@ window.Kanji =  {
   },
 
   jlptButton: function() {
-    var $group = $('.jlptButton');
+    var $button = $('.jlptButton');
+    var $content = $('#jlptContent');
 
-    $group.toggleClass('selected');
+    $content.toggleClass('hidden');
+    $button.toggleClass('selected');
   },
 
   jouyouButton: function() {
-    var $group = $('.jouyouButton');
+    var $button = $('.jouyouButton');
 
-    $group.toggleClass('selected');
+    $button.toggleClass('selected');
   },
 
   wkButton: function() {
-    var $group = $('.wkButton');
+    var $button = $('.wkButton');
 
-    $group.toggleClass('selected');
+    $button.toggleClass('selected');
   },
 
   _handleStrokeToggle: function() {

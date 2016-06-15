@@ -50,8 +50,8 @@ body {
   width: 75%;
 }
 
-.kanjiStrokes {
-  float: left;
+.hidden {
+	display: none;
 }
 
 .groupButton {
@@ -74,21 +74,16 @@ body {
 	background-color: pink;
 }
 
-#jlptContent {
-	display: none;
+.displayContent {
+	display: block;
 }
-
-#jouyouContent {
-	display:none;
-}
-
-#wkContent {
-	display:none;
-}
-
 
 .waniKaniContent {
   font-size: 13px;
+}
+
+.kanjiStrokes {
+  float: left;
 }
 
 .kanjiStrokes .strokeToggle {
