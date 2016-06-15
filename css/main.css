@@ -158,6 +158,21 @@ body {
   font-size: 12px;
 }
 
+.sizeButton {
+	float: left;
+	background-color: #fff;
+	border-color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	cursor: pointer;
+	padding: 5px;
+	margin-right: 2px;
+}
+
+.selected-border {
+	border-color: pink;
+}
+
 #content .kanji-box:nth-child(n+3) {
     color: rgba(0, 0, 0, 0.15);
 }
