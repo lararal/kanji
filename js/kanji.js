@@ -1,3 +1,4 @@
+var kanjis = [];
 window.Kanji =  {
 
   SELECTOR_TEMPLATE:    $('#selectorTemplate').html().trim(),
@@ -32,10 +33,13 @@ window.Kanji =  {
     $selectedKanji.toggleClass('selected');
 
     if (existingKanji && !selected) {
+      kanjis.push(existingKanji);
       Kanji._getKanjiData($selectedKanji);
     }
 
     else if (existingKanji && selected) {
+      var indexToRemove = kanjis.indexOf(existingKanji);
+      kanjis.splice(indexToRemove, 1);
       Kanji._removeKanjiRow(existingKanji);
     }
   },
@@ -57,6 +61,8 @@ window.Kanji =  {
   },
 
   _handleSizeButton: function(){
+    $('#l-size').addClass('selected-border');
+
     $('.sizeButton').each(function() {
       $(this).on('click', function () {
         Kanji.sizeButton($(this));
