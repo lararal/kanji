@@ -1,22 +1,24 @@
 var kanjis = [];
+var size = 'L';
 window.Kanji =  {
 
   SELECTOR_TEMPLATE:    $('#selectorTemplate').html().trim(),
   KANJI_TEMPLATE:       $('#kanjiTemplate').html().trim(),
   SUBCATEGORY_TEMPLATE: $('#subCategoryTemplate').html().trim(),
   $kanjiSelectionBox:   $('#kanjiSelectionBox'),
-  $contentBox:          $('#content'),
+  $contentBoxL:         $('#contentL'),
+  $contentBoxM:         $('#contentM'),
+  $contentBoxS:         $('#contentS'),
   $category:            $('#kanjiSelectionBox .category'),
 
   _getKanjiData: function($selectedKanji) {
     var kanji = {};
-
     kanji['character'] = $selectedKanji.data('character');
     kanji['meaning']   = $selectedKanji.data('meaning');
     kanji['onyomi']    = $selectedKanji.data('onyomi');
     kanji['kunyomi']   = $selectedKanji.data('kunyomi');
 
-      Kanji._setKanjiRow(kanji);
+    Kanji._setKanjiRow(kanji);
   },
 
   _handleKanjiSelection: function() {
@@ -71,8 +73,29 @@ window.Kanji =  {
   },
 
   sizeButton: function ($button) {
+    var selectedSize = $button[0].id;
+
     $button.siblings().removeClass('selected-border');
     $button.addClass('selected-border');
+    Kanji._removeContent(size);
+
+    if(selectedSize == 'l-size') {
+      size = 'L';
+    } else if (selectedSize == 'm-size') {
+      size = 'M';
+    } else {
+      size = 'S';
+    }
+
+    for (var i = kanjis.length - 1; i >= 0; i--) {
+      var $kanji = this.$kanjiSelectionBox.find('[data-character="'+ kanjis[i] +'"]');
+      Kanji._getKanjiData($kanji);
+    }
+  },
+
+  _removeContent: function(size) {
+    $c = $('#content' + size);
+    $c.children().empty();
   },
 
   _handleJLPTButton: function() {
@@ -140,7 +163,13 @@ window.Kanji =  {
     var $strokeToggle = $('.strokeToggle');
 
     $strokeToggle.toggleClass('selected');
-    Kanji.$contentBox.toggleClass('stroke-order');
+    if (size == 'L') {
+      Kanji.$contentBoxL.toggleClass('stroke-order' + size);
+    } else if (size == 'M'){
+      Kanji.$contentBoxM.toggleClass('stroke-order' + size);
+    } else {
+      Kanji.$contentBoxS.toggleClass('stroke-order' + size);
+    }
   },
 
   _removeKanjiRow: function(existingKanji) {
@@ -160,7 +189,13 @@ window.Kanji =  {
     $kanjiKunyomi.text(kanji.kunyomi);
     $kanjiRow.attr('data-character', kanji.character);
 
-    Kanji.$contentBox.prepend($kanjiRow);
+    if (size == 'L') {
+      Kanji.$contentBoxL.prepend($kanjiRow);
+    } else if (size == 'M') {
+      Kanji.$contentBoxM.prepend($kanjiRow);
+    } else {
+      Kanji.$contentBoxS.prepend($kanjiRow);
+    }
   },
 
   _setKanjiCategory: function(kanji) {

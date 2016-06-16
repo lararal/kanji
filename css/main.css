@@ -1,8 +1,8 @@
 /* Global */
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
@@ -17,7 +17,7 @@ body {
 
 #selectorTemplate,
 #kanjiTemplate {
-    display: none;
+  display: none;
 }
 
 /* Layout */
@@ -173,12 +173,28 @@ body {
 	border-color: pink;
 }
 
-#content .kanji-box:nth-child(n+3) {
-    color: rgba(0, 0, 0, 0.15);
+#contentL .kanji-box:nth-child(n+3) {
+  color: rgba(0, 0, 0, 0.15);
 }
 
-#content .kanji-box:nth-child(n+5) {
-    color: white;
+#contentL .kanji-box:nth-child(n+5) {
+  color: white;
+}
+
+#contentM .kanji-box:nth-child(n+3) {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+#contentM .kanji-box:nth-child(n+5) {
+  color: white;
+}
+
+#contentS .kanji-box:nth-child(n+3) {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+#contentS .kanji-box:nth-child(n+5) {
+  color: white;
 }
 
 .kanji-row {
@@ -188,40 +204,69 @@ body {
 
 .kanji-term,
 .kanji-definition {
-    display: inline-block;
+  display: inline-block;
 }
 
 .kanji-term {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .kanji-definition {
-    margin: 0 30px 0 10px;
-    text-transform: capitalize;
+  margin: 0 30px 0 10px;
+  text-transform: capitalize;
 }
 
-#content.handwriting .kanji-box {
+#contentL.handwriting .kanji-box {
   font-family: Mitimasu;
   font-size: 85px;
   line-height: 95px;
 }
 
-#content.stroke-order .kanji-box {
-  font-family: StrokeOrder;
-  font-size: 80px;
+#contentM.handwriting .kanji-box {
+  font-family: Mitimasu;
+  font-size: 55px;
+  line-height: 65px;
 }
 
-#content .kanji-box {
-    margin: 0 5px 5px 0;
-    width: 96px;
-    height: 96px;
-    border: 1px solid #000;
-    box-sizing: border-box;
-    float: left;
-    font-size: 65px;
-    text-align: center;
+#contentS.handwriting .kanji-box {
+  font-family: Mitimasu;
+  font-size: 28px;
+  line-height: 38px;
+}
+
+#contentL .kanji-box {
+  margin: 0 5px 5px 0;
+  width: 96px;
+  height: 96px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  float: left;
+  font-size: 65px;
+  text-align: center;
+}
+
+#contentM .kanji-box {
+  margin: 0 5px 5px 0;
+  width: 66px;
+  height: 66px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  float: left;
+  font-size: 35px;
+  text-align: center;
+}
+
+#contentS .kanji-box {
+  margin: 0 5px 5px 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  float: left;
+  font-size: 5px;
+  text-align: center;
 }
 
 .author {
@@ -247,7 +292,17 @@ body {
     page-break-inside: avoid;
   }
 
-  #content {
+  #contentL {
+    width: 980px;
+    float: left;
+  }
+
+  #contentM {
+    width: 980px;
+    float: left;
+  }
+
+  #contentS {
     width: 980px;
     float: left;
   }
