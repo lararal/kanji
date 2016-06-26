@@ -123,6 +123,7 @@ body {
   box-sizing: border-box;
   display: inline-block;
   text-align: center;
+  cursor: pointer; 
 }
 
 #kanjiSelectionBox .kanji-box.selected {
