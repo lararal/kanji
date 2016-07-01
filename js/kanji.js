@@ -49,11 +49,16 @@ window.Kanji =  {
   _handleSectionExpansion: function() {
     Kanji.$category.on('click', function() {
       var $selectedCategory = $(this);
+      
+      if ($selectedCategory.siblings('.category-content').hasClass('expand') ) {
+        var kanjiChildren = $selectedCategory.siblings('.category-content').children();
+        kanjiChildren.each (function(){
+          Kanji._selectKanji ($(this));
+        });
+      } else {
+        Kanji.sectionExpansion($selectedCategory);
+      }
 
-      Kanji.sectionExpansion($selectedCategory);
-
-      Kanji.$category.siblings('.category-content').removeClass('expand');
-      $selectedCategory.siblings('.category-content').addClass('expand');
     });
   },
 
