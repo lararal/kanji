@@ -28,11 +28,26 @@ window.WaniKani = {
     var $subLevelTemplate = $(WaniKani.SUBLEVEL_TEMPLATE);
     var $subLevelTitle    = $subLevelTemplate.find('.subcategory-title');
 
+
     for(i=1; i<=userLevel; i++){
       $subLevelTemplate.attr('data-subcategory', i);
       $subLevelTitle.text('Level '+ i);
-      $category.append($subLevelTemplate.clone());
+
+      $subLevelTitle.on('click', function(){
+        WaniKani.selectAllBySublevel($(this));
+      });
+
+      // We need the boolean value to specify that
+      // we also want the handlers to be cloned
+      $category.append($subLevelTemplate.clone(true));
+
     };
+  },
+
+  selectAllBySublevel: function($sublevel) {
+    $sublevel.siblings('.kanji-box').each( function(){
+      window.Kanji._selectKanji ($(this));
+    });
   },
 
   _hideUserForm: function() {
